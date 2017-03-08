@@ -1,0 +1,31 @@
+.container{
+ width : 980px;
+ background:#fff;
+ min-height: 700px;
+}
+
+body{
+  background: black;
+}
+
+button,
+div,
+form,
+input {
+  margin: 10px;
+}
+
+
+button {
+  background: #4aaaa5;
+  color: #fff;
+}
+
+#add-animal{
+  background: #4aaaa5;
+  color: #fff;
+}
+
+.gif{
+float: left;
+}
