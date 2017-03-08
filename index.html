@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>GifTastic</title>
+    <!-- Bootstrap File -->
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- my style sheet-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <style type="text/css">
+    button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- the buttons for the movie -->
+    <div id="animal-buttons"></div>
+
+    <form id="animal-form">
+      <label for="animal-input">Add an animal</label>
+      <input type="text" id="animal-input"><br>
+
+      <!-- Button triggers new movie to be added -->
+      <input id="add-animal" type="submit" value="Submit">
+    </form>
+
+    <div id= "animal"></div>
+
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript">
+
+      // Initial array of aniamls
+      var topics = ["dog", "cat", "bird", "chinchilla", "skunk", "goldfish","chicken","frog","ferret","hedgehog","pig","gerbil","turtle","hamster","teacup pig","hermit crab","rabbit","capybara","goat"];
+
+      // Function for displaying movie data
+      function renderButtons() {
+      $("#animal-buttons").empty();
+
+        for (var i = 0; i < topics.length; i++) {
+        // append elements to the #animal button area 
+        var animalDiv = $("<button>");
+
+        $('#animal-buttons').append(animalDiv);
+        animalDiv.text(topics[i]);
+        animalDiv.attr("data-", topics[i]);
+        animalDiv.addClass("animal");
+        }
+      }
+
+      // This function handles events where one button is clicked
+      $("#add-animal").on("click", function() {
+      event.preventDefault();
+      var newAnimal = ($("#animal-input").val().trim());
+      topics.push(newAnimal); 
+      console.log(newAnimal);
+      renderButtons();
+      });
+
+      // Calling the renderButtons function to display the initial list of movies
+      renderButtons();
+    </script>
+  </div>
+</body>
+
+</html>
