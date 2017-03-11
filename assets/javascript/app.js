@@ -1,5 +1,5 @@
-// Initial array of aniamls
-var topics = ["dog", "cat", "bird", "chinchilla","skunk","falcon","camel","lion","pygmy goat","salamander","serval","hanster","sugar glider","deer","goldfish","chicken","frog","ferret","hedgehog","pig","gerbil","turtle","hamster","teacup pig","hermit crab","rabbit","capybara","goat"];
+// Initial array of animals
+var topics = ["dog", "cat", "bird", "chinchilla","skunk","falcon","camel","lion","pygmy goat","salamander","serval","sugar glider","deer","goldfish","chicken","frog","ferret","hedgehog","pig","gerbil","turtle","hamster","teacup pig","hermit crab","rabbit","capybara","goat"];
 
 // Function for displaying movie data
 function renderButtons() {
@@ -21,11 +21,11 @@ $("#add-animal").on("click", function() {
   event.preventDefault();
   var newAnimal = ($("#animal-input").val().trim());
   topics.push(newAnimal); 
-  console.log(newAnimal);
+  //console.log(newAnimal);
   renderButtons();
 });
 
-// Calling the renderButtons function to display the initial list of movies
+// Calling the renderButtons function to display the initial list of animals
 renderButtons();
 
 $(document).on("click","button",function(){
@@ -42,11 +42,13 @@ $(document).on("click","button",function(){
 
     var results = response.data;
 
+//geting the animal GIF on to #animal div 
   for (var i = 0; i < results.length; i++) {
     var animalDiv = $("<div>");
+    animalDiv.addClass("gifAnimal")
     var p = $("<p>");
     p.text("Rating: " + results[i].rating);
-    var animalImage = $("<img class='gif'>");
+    var animalImage = $("<img class= gif>");
     
     animalImage.attr("src", results[i].images.fixed_height_still.url);
 
@@ -61,6 +63,7 @@ $(document).on("click","button",function(){
 
 });
 
+// GIF animation
 $(document).on("click",".gif",function(){
 // make a variable named state and then store the image's data-state into it.
 // Check if the variable state is equal to 'still',

@@ -1,6 +1,6 @@
 .container{
  width : 980px;
- background:#fff;
+ background: #F0F8FF;
  min-height: 700px;
 }
 
@@ -12,16 +12,27 @@ button,
 div,
 form,
 input {
-  margin: 10px;
+  margin: 5px;
 }
 
+.gifAnimal{
+display: inline-block;
+height: 250px;
+margin-left:10px;	
+}
 
-button {
+#add-animal,button {
   background: #4aaaa5;
   color: #fff;
+  border-radius: 5px;
+  border: 2px solid grey;
+  padding : 5px;
 }
 
 #add-animal{
-  background: #4aaaa5;
-  color: #fff;
+  clear:both;
+}
+
+#animal-form{
+float: right;	
 }
